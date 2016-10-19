@@ -293,7 +293,7 @@ Les couleurs peuvent être écrites de deux manières :
 
 - en hexadécimal de type RVB et précédées d'un dièse (#). Par exemple : #ff0000 => rouge, #00ff00 => vert, #0000ff => bleu.
 
-- textuelle (en anglais). Par exmple : `red`, `yellow`, `pink`.
+- textuelle (en anglais). Par exemple : `red`, `yellow`, `pink`.
 
 ### Modifier la police du texte
 
@@ -356,11 +356,11 @@ On distingue deux types de liens, les liens externes et les liens internes.
 
 ### Les liens externes
 
-Un lien externe est un lien hypertexte qui renvoie vers une autre page. Cette autre page peut être une page de votre site ou celle d'un site tiers.
+Un lien externe est un lien hypertexte qui renvoie vers une page hébergée par un site différent de celui qui a servi la page.
 
 ### Les liens internes
 
-Un lien interne est un lien qui renvoie vers la même page, mais pas forcément au même endroit de la page.
+Un lien interne est un lien qui renvoie vers une page appartenant au même site que celui qui a fourni la page dans laquelle se trouve le lien en question.
 
 On utilise pour cela les *ancres*.
 
