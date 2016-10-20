@@ -1518,48 +1518,53 @@ p.remark {
 
 ### Organisation de l'espace
 
-Pour organiser l'espace, on utilise la balise `<div>`.
+Le navigateur dispose les éléments dans la page en fonction plusieurs règles, 
+en suivant un _"flux"_.
 
-Au niveau des tailles, on préfèrera les unités `%` et `em` à `px` (en tout cas pour supporter les petits écrans).
+Deux critères sont principalement utilisés:
 
-Dans le flux standard, les éléments peuvent être de type `block` ou `inline`. Le type par défaut est fonction de l'élément. Il peut être modifié avec la propriété CSS `display` :
+- la propriété `display`,
+- la propriété `position`.
 
-		display: block;
-		display: inline;
-		display: none;
+### La propriété `display`
 
-### L'élément BLOCK
+Peut prendre les valeurs `block`, `inline`, `none` (et bien d'autres).
 
-Un élément de type block :
+Chaque élément HTML possède sa propre valeur intrinsèque, modifiable avec CSS.
+
+- Une `div` est par défaut en `display: block;`
+- Un `span` est par défaut en `display: inline;`
+
+### `display: block;`
+
+Un élément `block` :
 
 - utilise toute la largeur disponible,
 - permet l'attribution de marges verticales,
 - permet la modification de sa largeur et hauteur.
 
-### L'élément INLINE
+### `display: inline;`
 
-Un élément inline :
+Un élément `inline` :
 
 - a une taille dépendant de son contenu,
 - n'a pas de retour chariot ni avant, ni après,
 - est enchaîné directement avec les `inline` suivants.
 
+### La propriété `position`
 
-### Positionnement
+Altère le positionnement d'un élément:
 
-Le positionnement des éléments se fait dans un flux. La propriété `position` permet de changer le positionnement:
-
-- **static** : valeur par défaut.
-- **relative** : l'élément est décalé de sa position normale mais reste dans le flux. Les autres éléments ne sont pas dérangés. *Positionne* l'élément.
+- **static** : suit le flux normal _(valeur par défaut)_.
+- **relative** : l'élément est décalé de sa position normale mais reste dans le flux. Les autres éléments ne sont pas impactés. *Positionne* l'élément.
+- **absolute** : la position de l'élément est relative à son premier parent positionné (avec position à *absolute* ou *relative*).
 - **fixed** : la position de l'élément est relative à la fenêtre du navigateur.
-- **absolute** : la position de l'élément est relative à son premier parent **positionné** (avec position à *abosulte* ou *relative*).
 
-Seules les positions `static` et `relative` maintiennent l'élément dans le flux normal.
+_Seules les positions `static` et `relative` maintiennent l'élément dans le flux normal._
 
 ### Positionnement
 
 La propriété `position` est utilisée conjointement avec `top`, `right`, `bottom`, `left`, `width` et `height`.
-
 
 ### Overflow
 

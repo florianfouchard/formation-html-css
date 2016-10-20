@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
+  <meta name="author" content="" />
   <title>HTML CSS Javascript</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -26,6 +27,7 @@
 
 <section>
     <h1 class="title">HTML CSS Javascript</h1>
+    <h2 class="author"></h2>
     <h3 class="date">Formation HTML CSS Javascript CS - 2015 - Arnaud Tournier - LTE Consulting</h3>
 </section>
 
@@ -78,7 +80,7 @@ Et la ligne suivante ferme le paragraphe
 </section><section id="structure-dun-document-html" class="slide level3">
 <h1>Structure d'un document HTML</h1>
 <p>Structure minimale obligatoire d'une page :</p>
-<pre><code>&lt;!doctype html public &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+<pre><code>&lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Titre de la page&lt;/title&gt;
@@ -235,7 +237,7 @@ Et la ligne suivante ferme le paragraphe
 <p>Les couleurs peuvent être écrites de deux manières :</p>
 <ul>
 <li><p>en hexadécimal de type RVB et précédées d'un dièse (#). Par exemple : #ff0000 =&gt; rouge, #00ff00 =&gt; vert, #0000ff =&gt; bleu.</p></li>
-<li><p>textuelle (en anglais). Par exmple : <code>red</code>, <code>yellow</code>, <code>pink</code>.</p></li>
+<li><p>textuelle (en anglais). Par exemple : <code>red</code>, <code>yellow</code>, <code>pink</code>.</p></li>
 </ul>
 </section><section id="modifier-la-police-du-texte" class="slide level3">
 <h1>Modifier la police du texte</h1>
@@ -278,10 +280,10 @@ Et la ligne suivante ferme le paragraphe
 <p>On distingue deux types de liens, les liens externes et les liens internes.</p>
 </section><section id="les-liens-externes" class="slide level3">
 <h1>Les liens externes</h1>
-<p>Un lien externe est un lien hypertexte qui renvoie vers une autre page. Cette autre page peut être une page de votre site ou celle d'un site tiers.</p>
+<p>Un lien externe est un lien hypertexte qui renvoie vers une page hébergée par un site différent de celui qui a servi la page.</p>
 </section><section id="les-liens-internes" class="slide level3">
 <h1>Les liens internes</h1>
-<p>Un lien interne est un lien qui renvoie vers la même page, mais pas forcément au même endroit de la page.</p>
+<p>Un lien interne est un lien qui renvoie vers une page appartenant au même site que celui qui a fourni la page dans laquelle se trouve le lien en question.</p>
 <p>On utilise pour cela les <em>ancres</em>.</p>
 </section><section id="les-ancres" class="slide level3">
 <h1>Les ancres</h1>
@@ -891,26 +893,26 @@ Passez la souris...
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Sélecteur</th>
-<th style="text-align: left;">Sélectionne</th>
+<th>Sélecteur</th>
+<th>Sélectionne</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">A E</td>
-<td style="text-align: left;">Tout élement E descendant de A</td>
+<td>A E</td>
+<td>Tout élement E descendant de A</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">A &gt; E</td>
-<td style="text-align: left;">Tout élement E fils <strong>direct</strong> de A</td>
+<td>A &gt; E</td>
+<td>Tout élement E fils <strong>direct</strong> de A</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">E:first-child</td>
-<td style="text-align: left;">Tout élement E étant le premier enfant de son parent</td>
+<td>E:first-child</td>
+<td>Tout élement E étant le premier enfant de son parent</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">B + E</td>
-<td style="text-align: left;">Tout élément E qui suit un élément B étant un frère</td>
+<td>B + E</td>
+<td>Tout élément E qui suit un élément B étant un frère</td>
 </tr>
 </tbody>
 </table>
@@ -1226,39 +1228,47 @@ Je suis une remarque !
 </p>
 </section><section id="organisation-de-lespace" class="slide level3">
 <h1>Organisation de l'espace</h1>
-<p>Pour organiser l'espace, on utilise la balise <code>&lt;div&gt;</code>.</p>
-<p>Au niveau des tailles, on préfèrera les unités <code>%</code> et <code>em</code> à <code>px</code> (en tout cas pour supporter les petits écrans).</p>
-<p>Dans le flux standard, les éléments peuvent être de type <code>block</code> ou <code>inline</code>. Le type par défaut est fonction de l'élément. Il peut être modifié avec la propriété CSS <code>display</code> :</p>
-<pre><code>    display: block;
-    display: inline;
-    display: none;</code></pre>
-</section><section id="lélément-block" class="slide level3">
-<h1>L'élément BLOCK</h1>
-<p>Un élément de type block :</p>
+<p>Le navigateur dispose les éléments dans la page en fonction plusieurs règles, en suivant un <em>&quot;flux&quot;</em>.</p>
+<p>Deux critères sont principalement utilisés:</p>
+<ul>
+<li>la propriété <code>display</code>,</li>
+<li>la propriété <code>position</code>.</li>
+</ul>
+</section><section id="la-propriété-display" class="slide level3">
+<h1>La propriété <code>display</code></h1>
+<p>Peut prendre les valeurs <code>block</code>, <code>inline</code>, <code>none</code> (et bien d'autres).</p>
+<p>Chaque élément HTML possède sa propre valeur intrinsèque, modifiable avec CSS.</p>
+<ul>
+<li>Une <code>div</code> est par défaut en <code>display: block;</code></li>
+<li>Un <code>span</code> est par défaut en <code>display: inline;</code></li>
+</ul>
+</section><section id="display-block" class="slide level3">
+<h1><code>display: block;</code></h1>
+<p>Un élément <code>block</code> :</p>
 <ul>
 <li>utilise toute la largeur disponible,</li>
 <li>permet l'attribution de marges verticales,</li>
 <li>permet la modification de sa largeur et hauteur.</li>
 </ul>
-</section><section id="lélément-inline" class="slide level3">
-<h1>L'élément INLINE</h1>
-<p>Un élément inline :</p>
+</section><section id="display-inline" class="slide level3">
+<h1><code>display: inline;</code></h1>
+<p>Un élément <code>inline</code> :</p>
 <ul>
 <li>a une taille dépendant de son contenu,</li>
 <li>n'a pas de retour chariot ni avant, ni après,</li>
 <li>est enchaîné directement avec les <code>inline</code> suivants.</li>
 </ul>
-</section><section id="positionnement" class="slide level3">
-<h1>Positionnement</h1>
-<p>Le positionnement des éléments se fait dans un flux. La propriété <code>position</code> permet de changer le positionnement:</p>
+</section><section id="la-propriété-position" class="slide level3">
+<h1>La propriété <code>position</code></h1>
+<p>Altère le positionnement d'un élément:</p>
 <ul>
-<li><strong>static</strong> : valeur par défaut.</li>
-<li><strong>relative</strong> : l'élément est décalé de sa position normale mais reste dans le flux. Les autres éléments ne sont pas dérangés. <em>Positionne</em> l'élément.</li>
+<li><strong>static</strong> : suit le flux normal <em>(valeur par défaut)</em>.</li>
+<li><strong>relative</strong> : l'élément est décalé de sa position normale mais reste dans le flux. Les autres éléments ne sont pas impactés. <em>Positionne</em> l'élément.</li>
+<li><strong>absolute</strong> : la position de l'élément est relative à son premier parent positionné (avec position à <em>absolute</em> ou <em>relative</em>).</li>
 <li><strong>fixed</strong> : la position de l'élément est relative à la fenêtre du navigateur.</li>
-<li><strong>absolute</strong> : la position de l'élément est relative à son premier parent <strong>positionné</strong> (avec position à <em>abosulte</em> ou <em>relative</em>).</li>
 </ul>
-<p>Seules les positions <code>static</code> et <code>relative</code> maintiennent l'élément dans le flux normal.</p>
-</section><section id="positionnement-1" class="slide level3">
+<p><em>Seules les positions <code>static</code> et <code>relative</code> maintiennent l'élément dans le flux normal.</em></p>
+</section><section id="positionnement" class="slide level3">
 <h1>Positionnement</h1>
 <p>La propriété <code>position</code> est utilisée conjointement avec <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>, <code>width</code> et <code>height</code>.</p>
 </section><section id="overflow" class="slide level3">
@@ -1607,26 +1617,26 @@ Je suis une remarque !
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Taille</th>
-<th style="text-align: left;">iPhone 5</th>
-<th style="text-align: left;">Galaxy SIII</th>
+<th>Taille</th>
+<th>iPhone 5</th>
+<th>Galaxy SIII</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Physique</td>
-<td style="text-align: left;">640x1136</td>
-<td style="text-align: left;">720x1280</td>
+<td>Physique</td>
+<td>640x1136</td>
+<td>720x1280</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">CSS</td>
-<td style="text-align: left;">320x</td>
-<td style="text-align: left;">360x</td>
+<td>CSS</td>
+<td>320x</td>
+<td>360x</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Viewport</td>
-<td style="text-align: left;">980x (Safari)</td>
-<td style="text-align: left;">980x (Android 4)</td>
+<td>Viewport</td>
+<td>980x (Safari)</td>
+<td>980x (Android 4)</td>
 </tr>
 </tbody>
 </table>
@@ -1651,38 +1661,38 @@ Je suis une remarque !
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Element</th>
-<th style="text-align: left;">Role</th>
+<th>Element</th>
+<th>Role</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><code>header</code></td>
-<td style="text-align: left;">entête de la page (sommaire, logo, menu)</td>
+<td><code>header</code></td>
+<td>entête de la page (sommaire, logo, menu)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>footer</code></td>
-<td style="text-align: left;">pieds de page (auteur, liens, copyright...)</td>
+<td><code>footer</code></td>
+<td>pieds de page (auteur, liens, copyright...)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>nav</code></td>
-<td style="text-align: left;">zone de navigation</td>
+<td><code>nav</code></td>
+<td>zone de navigation</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>section</code></td>
-<td style="text-align: left;">regroupement thématique</td>
+<td><code>section</code></td>
+<td>regroupement thématique</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>article</code></td>
-<td style="text-align: left;">contenu autonome</td>
+<td><code>article</code></td>
+<td>contenu autonome</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>aside</code></td>
-<td style="text-align: left;">afficher un contenu associé</td>
+<td><code>aside</code></td>
+<td>afficher un contenu associé</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>main</code></td>
-<td style="text-align: left;">contenu principal de la page</td>
+<td><code>main</code></td>
+<td>contenu principal de la page</td>
 </tr>
 </tbody>
 </table>
@@ -1691,34 +1701,34 @@ Je suis une remarque !
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Element</th>
-<th style="text-align: left;">Role</th>
+<th>Element</th>
+<th>Role</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><code>time</code></td>
-<td style="text-align: left;">contenu lié au temps</td>
+<td><code>time</code></td>
+<td>contenu lié au temps</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>mark</code></td>
-<td style="text-align: left;">mise en évidence</td>
+<td><code>mark</code></td>
+<td>mise en évidence</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>meter</code></td>
-<td style="text-align: left;">indication d'une mesure (<em>value, min, low, max, ...</em>)</td>
+<td><code>meter</code></td>
+<td>indication d'une mesure (<em>value, min, low, max, ...</em>)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>detail</code>, <code>summary</code></td>
-<td style="text-align: left;">affichage master/detail</td>
+<td><code>detail</code>, <code>summary</code></td>
+<td>affichage master/detail</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>progress</code></td>
-<td style="text-align: left;">barre de progression</td>
+<td><code>progress</code></td>
+<td>barre de progression</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>figure</code>, <code>figcaption</code></td>
-<td style="text-align: left;">une figure et sa légende</td>
+<td><code>figure</code>, <code>figcaption</code></td>
+<td>une figure et sa légende</td>
 </tr>
 </tbody>
 </table>
